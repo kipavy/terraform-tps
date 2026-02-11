@@ -1,0 +1,11 @@
+aws_region         = "eu-west-3"
+aws_access_key     = "YOUR_AWS_ACCESS_KEY"
+aws_secret_key     = "YOUR_AWS_SECRET_KEY"
+
+public_key         = "ssh-ed25519 AAAA...YOUR_PUBLIC_KEY..."
+vpc_id             = "vpc-xxxx"
+subnet_id          = "subnet-xxxx"
+ami_id             = "ami-xxxx"
+instance_type      = "t3.micro"
+instance_name      = "WebServer-YOURNAME"
+student_name       = "YOUR_NAME"
