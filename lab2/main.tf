@@ -9,6 +9,12 @@ resource "docker_container" "this" {
   memory     = var.memory_mb
   privileged = var.privileged
 
+  volumes {
+    host_path      = abspath("${path.module}/nginx/default.conf")
+    container_path = "/etc/nginx/conf.d/default.conf"
+    read_only      = true
+  }
+
   ports {
     internal = 80
     external = var.start_port + count.index
