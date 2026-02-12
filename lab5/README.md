@@ -13,6 +13,10 @@ One allowing traffic from the public security group only, on http/s . Name it in
 Create a new module where you’ll create an application load balancer. Place it on the public networks.
 Depending if the path called is “..../nginx” or “.../tomcat” redirect on one or the other ASG
 
+## Student Y (will use ec2.tfstate):
+Make a module that will create an ASG of t3.micro, using a launch template. Make it a configurable module where you can tune the AMI, the ASG min and max size, subnets it’s created on and the security group. Add an Application Load balancer in front of your ASG.
+Instantiate your module to deploy an ASG of 2/2  on the private subnet created by student X, fetch the subnet by using a datasource that will query AWS. Associate the internal Security Group to it, fetched via datasource, with the ami with a name starting by “bitnami-nginx-…”
+Instantiate your module to deploy an ASG of 2/2  on the private subnet created by student X, fetch the subnet by using a datasource that will query AWS. Associate the internal Security Group to it, fetched via datasource, with the ami with a name starting by “bitnami-tomcat-…”
 
 ## Architecture
 
@@ -71,8 +75,3 @@ s3://terraform-state-agvq0/global/s3/student_11_9/
 ```
 
 ---
-
-## Student Y (will use ec2.tfstate):
-Make a module that will create an ASG of t3.micro, using a launch template. Make it a configurable module where you can tune the AMI, the ASG min and max size, subnets it’s created on and the security group. Add an Application Load balancer in front of your ASG.
-Instantiate your module to deploy an ASG of 2/2  on the private subnet created by student X, fetch the subnet by using a datasource that will query AWS. Associate the internal Security Group to it, fetched via datasource, with the ami with a name starting by “bitnami-nginx-…”
-Instantiate your module to deploy an ASG of 2/2  on the private subnet created by student X, fetch the subnet by using a datasource that will query AWS. Associate the internal Security Group to it, fetched via datasource, with the ami with a name starting by “bitnami-tomcat-…”
